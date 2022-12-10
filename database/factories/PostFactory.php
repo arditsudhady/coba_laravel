@@ -20,10 +20,10 @@ class PostFactory extends Factory
             'title' => $this->faker->sentence(mt_rand(2,8)),
             'slug' => $this->faker->slug(),
             'excerpt' => $this->faker->paragraph(),
-            // Teknik biasa
+            // Teknik biasa ketika membuat paragrap otomatis
             // 'body' => '<p>'. implode('</p><p>', $this->faker->paragraphs(mt_rand(3,8))) . '</p>',
 
-            // Teknik Maping
+            // Teknik Maping ketika membuat paragrap otomatis
             'body' => collect($this->faker->paragraphs(mt_rand(3,8)))
                         ->map(fn($p) => "<p>$p</p>")
                         ->implode(''),
