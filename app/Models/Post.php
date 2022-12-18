@@ -22,6 +22,20 @@ class Post extends Model
             return $query->where('title', 'like', '%' . $search . '%')
                          ->orWhere('body', 'like', '%' . $search . '%');
         });
+
+        // versi qoulback
+        $query->when($filters['category'] ?? false, function($query, $category) {
+            return $query->whereHas('category', function($query) use ($category) {
+                $query->where('slug', $category);
+            });
+        });
+
+        // versi Erou function
+        $query->when($filters['user'] ?? false, fn($query, $user) => 
+            $query->whereHas('user', fn($query) =>
+                $query->where('username', $user) 
+            ) 
+        );
     }
 
     public function category()

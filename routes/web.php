@@ -21,14 +21,14 @@ use App\Models\User;
 Route::get('/', function () {
     return view('home', [
         "title" => "Home",
-        'active' => 'home'
+        "active" => "home"
     ]);
 });
 
 Route::get('/about', function () {
     return view('about', [
         "title" => "About",
-        'active' => 'about',
+        "active" => "about",
         "name" => "Ngardi Sudadi",
         "email" => "takamurahatsu@gmail.com",
         "image" => "aku.png"
@@ -49,17 +49,18 @@ Route::get('/categories', function() {
     ]);
 });
 
-Route::get('/categories/{category:slug}', function(Category $category) {
-    return view('posts', [
-        'title' => "Post By Category : $category->name",
-        'active' => 'categories',
-        'posts' => $category->posts->load('category', 'user'),
-    ]);
-});
+// Route::get('/categories/{category:slug}', function(Category $category) {
+//     return view('posts', [
+//         'title' => "Post By Category : $category->name",
+//         'active' => 'categories',
+//         'posts' => $category->posts->load('category', 'user'),
+//     ]);
+// });
 
-Route::get('/authors/{user:username}', function(User $user){
-    return view('posts', [
-        'title' => "Posts By Author : $user->name",
-        'posts' => $user->posts->load('category', 'user'),
-    ]);
-});
+// Route::get('/authors/{user:username}', function(User $user){
+//     return view('posts', [
+//         'title' => "Posts By Author : $user->name",
+//         'active' => 'posts',
+//         'posts' => $user->posts->load('category', 'user'),
+//     ]);
+// });
