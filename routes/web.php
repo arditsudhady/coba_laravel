@@ -1,11 +1,13 @@
 <?php
 
 use App\Models\Post;
+use App\Models\User;
+use App\Models\Category;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-
-use App\Models\Category;
-use App\Models\User;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,18 +22,18 @@ use App\Models\User;
 
 Route::get('/', function () {
     return view('home', [
-        "title" => "Home",
+        "title"  => "Home",
         "active" => "home"
     ]);
 });
 
 Route::get('/about', function () {
     return view('about', [
-        "title" => "About",
+        "title"  => "About",
         "active" => "about",
-        "name" => "Ngardi Sudadi",
-        "email" => "takamurahatsu@gmail.com",
-        "image" => "aku.png"
+        "name"   => "Ngardi Sudadi",
+        "email"  => "takamurahatsu@gmail.com",
+        "image"  => "aku.png"
     ]);
 });
 
@@ -43,9 +45,9 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
 Route::get('/categories', function() {
     return view('categories', [
-        'title' => 'Post Categories',
-        'active' => 'categories',
-        'categoriess' => Category::all()
+        'title'         => 'Post Categories',
+        'active'        => 'categories',
+        'categoriess'   => Category::all()
     ]);
 });
 
@@ -64,3 +66,9 @@ Route::get('/categories', function() {
 //         'posts' => $user->posts->load('category', 'user'),
 //     ]);
 // });
+
+Route::get('/login', [LoginController::class, 'index']);
+
+
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);
