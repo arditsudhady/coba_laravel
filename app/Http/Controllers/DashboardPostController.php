@@ -14,7 +14,7 @@ class DashboardPostController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.posts.index');
     }
 
     /**
