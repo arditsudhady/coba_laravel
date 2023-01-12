@@ -53,6 +53,10 @@ class DashboardPostController extends Controller
             'body'        => 'required'
         ]);
 
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
+
         // proses input dalam validate
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
@@ -106,7 +110,7 @@ class DashboardPostController extends Controller
             'body'        => 'required'
         ];
 
-        if($request->slug != $post->slug) {
+        if ($request->slug != $post->slug) {
             $rules['slug'] = 'required|unique:posts';
         }
 
