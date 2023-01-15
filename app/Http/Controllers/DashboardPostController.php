@@ -43,13 +43,13 @@ class DashboardPostController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->file('image')->store('post-image');
+        // return $request->file('image')->store('post-image');
 
         $validatedData = $request->validate ([
             'title'       => 'required|max:255',
             'slug'        => 'required|unique:posts',
             'category_id' => 'required',
-            'image'       => 'image|file|max:1024',
+            'image'       => 'image|file|max:3024',
             'body'        => 'required'
         ]);
 
@@ -114,7 +114,7 @@ class DashboardPostController extends Controller
             $rules['slug'] = 'required|unique:posts';
         }
 
-        $validatedData = $request->Validated($rules);
+        $validatedData = $request->Validate($rules);
 
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
