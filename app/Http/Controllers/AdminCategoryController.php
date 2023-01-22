@@ -15,6 +15,17 @@ class AdminCategoryController extends Controller
      */
     public function index()
     {
+        // Cara manual menggunakan super user admin tanpa fitur middleware
+
+        // Menggunakan guest ""
+        // if (auth()->guest() || auth()->user()->username !== 'arditsudhady') {
+        //     abort(403);
+        // }
+        // Menggunakan check ""
+        // if (!auth()->check() || auth()->user()->username !== 'arditsudhady') {
+        //     abort(403);
+        // }
+
         return view('dashboard.categories.index', [
             'categories' => Category::all()
         ]);
