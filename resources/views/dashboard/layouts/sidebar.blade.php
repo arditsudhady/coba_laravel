@@ -13,30 +13,19 @@
             My Posts
           </a>
         </li>
+      </ul>
+
+      <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+        <span>Administrator</span>
+      </h6>
+
+      <ul class="nav flex-column">
         <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : '' }}" href="/dashboard/categories">
-            <span data-feather="layers" class="align-text-bottom"></span>
-            Category
+            <span data-feather="grid" class="align-text-bottom"></span>
+            Post Categories
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span data-feather="shopping-cart" class="align-text-bottom"></span>
-            Customers
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span data-feather="bar-chart-2" class="align-text-bottom"></span>
-            Reports
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span data-feather="users" class="align-text-bottom"></span>
-            Integrations
-          </a>
-        </li>
-      </ul>       
+      </ul>
     </div>
   </nav>

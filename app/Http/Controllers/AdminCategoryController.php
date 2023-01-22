@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\AdminCategoryModel;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class AdminCategoryController extends Controller
      */
     public function index()
     {
-        return view('dashboard.category.index', [
+        return view('dashboard.categories.index', [
             'categories' => Category::all()
         ]);
     }
