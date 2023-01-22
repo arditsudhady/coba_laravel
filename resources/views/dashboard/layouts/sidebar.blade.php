@@ -15,13 +15,13 @@
         </li>
         <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : '' }}" href="/dashboard/categories">
-            <span data-feather="shopping-cart" class="align-text-bottom"></span>
+            <span data-feather="layers" class="align-text-bottom"></span>
             Category
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
-            <span data-feather="users" class="align-text-bottom"></span>
+            <span data-feather="shopping-cart" class="align-text-bottom"></span>
             Customers
           </a>
         </li>
@@ -33,7 +33,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
-            <span data-feather="layers" class="align-text-bottom"></span>
+            <span data-feather="users" class="align-text-bottom"></span>
             Integrations
           </a>
         </li>
